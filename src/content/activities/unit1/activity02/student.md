@@ -4,7 +4,7 @@ Slime Molds Patt Vira
 
 Simulador de baba, elige entre seguir el recorrido ya echo o crear un nuevo camino
 
-![Cuadro comparativo](../../../../assets/slime-molds.png)
+![image](../../../../assets/slime-molds.png)
 
 
 Gravity Arjun
@@ -13,4 +13,13 @@ Gravity Arjun
 
 El usuario controla con el movimiento del mouse algunas particulas del texto
 
-![Cuadro comparativo](../../../../assets/Gravity-arjun.png)
+![image](../../../../assets/Gravity-arjun.png)
+
+
+Microscope Simulator TKt | 陳建中 Tân Kiàn-tiong（rainsr7235）
+
+[URL](https://p5js.org/sketches/2111906/)
+
+El programa genera aleatoriamente bacterias y el usuario panea el microscopio
+
+![image](../../../../assets/microscope.jpg)
