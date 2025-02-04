@@ -24,17 +24,8 @@ En un mundo que esta sobresaturado por publicidad, el arte generativo le da un n
 
 ![Cuadro comparativo](../../../../assets/cuadro-comparativo.png)
 
-``` js
-function setup(){
+##### Diseño generativo
 
-}
-```
-
-**Este es un enlace:**
-
-
-
-**Así coloco una imagen:**
-Las imágenes en formatos: png, jpeg, jpg, gif (cuidado que son muy grandes)
-
-![Esta imagen explica el proceso](../../../../assets/houston.webp)
+Es crear un software que pueda generar arte dependiendo del usuario.
+El diseñador crea el programa, y el programa crea la obra de arte.
+Al ser un programa, su estructura depende de algoritmos.
