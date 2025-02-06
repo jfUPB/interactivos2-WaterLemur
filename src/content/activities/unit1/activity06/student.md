@@ -10,7 +10,7 @@
 - Tipo de contenido: la herramienta utiliza un lenguaje propio de nodos, no permite utilizar sonidos.
 - Aplicaciones: se pueden generar experiencias en vivo, visualmente atractivas que cambien dependiendo de la posicion en que se miren.
 
-  #### three.js
+#### three.js
 
 - Descripción: herramienta que permite crear experiencias 3d completas y videojuegos
 - Tipo de contenido: la herramienta permite la creacion de experiencias completas, con camara 3d, movimiento y elecciones, posee sonido.
