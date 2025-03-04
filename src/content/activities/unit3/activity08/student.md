@@ -1,0 +1,4 @@
+- Se cumplio lo propuesto para aprender, la metodologia permite serguir el paso a paso e ir investigando las dudas y problemas que tengo en el camino, por eso no se generan mayores inconvenientes.
+- Aproveche al maximo el tiempo en clase y eso me permitio avanzar a buen ritmo
+- Si, la complementacion de tiempo por fuera del aula fue clave para continuar con el aprendizaje. La metodologia funciono bien.
+- Yo creo que hasta el momento hay buenos conceptos para crear aplicaciones en tiempo real, ya va mas es en la complejidad de la aplicacion.
