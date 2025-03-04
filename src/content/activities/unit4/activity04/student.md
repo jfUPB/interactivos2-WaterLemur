@@ -1,0 +1,9 @@
+- Es una tecnologia de codigo abierto que permite intercambiar video y/o audio entre buscadores sin necesidad de un intermediario.
+- Utiliza un proceso llamado 'signaling' para intercambiar informacion entre buscadores.
+- Se refiere a una coneccion directa entre dos dispositivos o usuarios en una red, sin necesidad de un servidor intermediario.
+- Es un modulo que permite trasmitir datos.
+- Es la transmision de video y/o audio atravez de internet en tiempo real.
+- 'Interactive Connectivity Establishmen', es un servidor que responde a un ICE client, comunmente usado en webRTC
+- Es un servidor que ayuda a clientes bajo firewalls o network address translators (NATs) a conectarse con otros clientes.
+- 'Traversal Using Relays around NAT', es un sistema basado en la nube que le permite a los dispositivos comunicarse por medio de WebRTC.
+- Es un servidor que funciona como intermediario para enviar datos entre dos dispositivos.
