@@ -1,133 +1,104 @@
-##### Codigo del servidor (Flask)
+##### Codigo del servidor
 
-```py
-from flask import Flask, request, jsonify
-import os
-import requests
+```js
+const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+const multer = require('multer');
+const path = require('path');
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
 
-app = Flask(__name__)
+// Setup multer for file uploads
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+const upload = multer({ storage: storage });
 
-# Directorio donde se guardarán las imágenes temporalmente
-UPLOAD_FOLDER = 'uploads'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+// Serve the HTML file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-# Dirección del Cliente 2
-CLIENT_2_URL = "http://cliente2_ip:5001/upload"  # Cambiar con la IP del Cliente 2
+// Handle file upload
+app.post('/upload', upload.single('image'), (req, res) => {
+    const filePath = req.file.path;
+    io.emit('imageUploaded', filePath); // Emit the file path to all connected clients
+    res.sendStatus(200);
+});
 
-# Ruta para recibir la imagen
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
-    if file:
-        # Guardar la imagen temporalmente en el servidor
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(filepath)
+// Set up Socket.IO
+io.on('connection', (socket) => {
+    console.log('A user connected');
+    socket.on('disconnect', () => {
+        console.log('A user disconnected');
+    });
+});
 
-        # Enviar la imagen al Cliente 2
-        with open(filepath, 'rb') as f:
-            files = {'file': (file.filename, f, 'image/jpeg')}
-            response = requests.post(CLIENT_2_URL, files=files)
-
-        if response.status_code == 200:
-            return jsonify({'message': 'File uploaded and forwarded to Client 2'}), 200
-        else:
-            return jsonify({'error': 'Failed to forward file to Client 2'}), 500
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-
+// Start server
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
 ```
 
-##### Codigo del Cliente 1
+##### Front End
 
-```py
-import tkinter as tk
-from tkinter import filedialog
-import requests
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Upload an Image</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    <h2>Uploaded Images</h2>
+    <div id="images"></div>
 
-def select_file():
-    filepath = filedialog.askopenfilename(title="Seleccionar una imagen")
-    if filepath:
-        send_image(filepath)
+    <script>
+        const socket = io();
+        
+        const form = document.getElementById('uploadForm');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
 
-def send_image(filepath):
-    url = 'http://localhost:5000/upload'  # Dirección del servidor
-    with open(filepath, 'rb') as file:
-        files = {'file': (filepath, file, 'image/jpeg')}
-        response = requests.post(url, files=files)
-        if response.status_code == 200:
-            print("Imagen enviada con éxito.")
-        else:
-            print("Error al enviar la imagen:", response.json())
+            const formData = new FormData(form);
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+        });
 
-# Crear la ventana principal
-root = tk.Tk()
-root.title("Enviar Imagen")
-
-# Botón para seleccionar la imagen
-button = tk.Button(root, text="Seleccionar Imagen", command=select_file)
-button.pack(pady=20)
-
-# Iniciar la interfaz gráfica
-root.mainloop()
+        socket.on('imageUploaded', (filePath) => {
+            const imagesDiv = document.getElementById('images');
+            const img = document.createElement('img');
+            img.src = filePath; // You might need to serve this URL correctly
+            img.style.height = '200px';
+            img.style.margin = '10px';
+            imagesDiv.appendChild(img);
+        });
+    </script>
+</body>
+</html>
 ```
 
-##### Codigo del cliente 2
-
-```py
-from flask import Flask, request, jsonify
-import os
-
-app = Flask(__name__)
-
-# Directorio donde se guardarán las imágenes
-UPLOAD_FOLDER = 'received_images'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# Ruta para recibir la imagen
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
-    if file:
-        # Guardar la imagen recibida
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(filepath)
-        return jsonify({'message': 'File received successfully', 'filepath': filepath}), 200
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
-```
-
-
-- Los clientes se comunican con el servidor mediante la funcion request y post
-
-```py
-response = requests.post(url, files=files)
-        if response.status_code == 200:
-            print("Imagen enviada con éxito.")
-```
-```py
- file = request.files['file']
-```
-
-- Los clientes se comunican entre si mediante el servidor.
-
-- Se envia la direccion donde se almacena la imagen.
-
-- Se envian mensajes en formato json.
-
-- Se generan eventos de tipo trigger, se consumen una sola vez.
-
-- Solo se envia la direccion donde se almacena la imagen.
-
-- Los clientes no intercambian datos directamente, lo hacen por medio del servidor.
+- Se conectan por medio de la funcion **Socket.IO**
+- Se comunican por medio del servidor, el cual sirve como intermediario para recivir y enviar los datos.
+- Se envian mensajes con cabecera y cuerpo, indicando el tipo de mensaje y su contenido.
+- Se envian los archivos de imagen serializados.
+- Pedir al usuario la imagen a enviar, el envio de la imagen, la escucha para la reception de esta.
+- El servidor esta a la escucha de mensajes de los clientes, esperando a que estos se comuniquen con el.
+- Los clientes se comunican por intermedio del servidor.
