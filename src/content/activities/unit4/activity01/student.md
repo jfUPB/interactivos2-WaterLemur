@@ -1,0 +1,1 @@
+Medellin es una ciudad que le gusta mucho los conciertos, puede ser una posibilidad de abrir nuevos espacios para reunir gente y disfrutar de otro tipo de espectaculos novedosos, la audiencia no tiene necesariamente que saber de codigo o entenderlo, pueden disfrutar todos de la musica.
