@@ -6,7 +6,3 @@
   - para ser despues mostrada como output.
 
 [referencia](https://editor.p5js.org/AidanNelson/sketches/8EcgJpEUi)
-
-```js
-
-```
