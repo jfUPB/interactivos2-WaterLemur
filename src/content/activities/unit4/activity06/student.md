@@ -1,0 +1,2 @@
+Me parece muy interesante aprender sobre servidores, sus tipos y su funcionalidad, el protocolo WebRTC tambien me parece una herramienta muy potente e interesante.
+Esta unidad, a pesar de ser mas corta que las demas, me parece que tiene conceptos muy interesantes y utiles en la vida, no solo para el curso sino conocer algunos tipos de servidor puede ser muy utiles, conocer la tecnologia WebRTC tambien puede ser muy util en un futuro.

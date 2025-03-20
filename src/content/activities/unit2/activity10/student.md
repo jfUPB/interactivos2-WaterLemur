@@ -1,0 +1,2 @@
+- Lo planeado se cumplio,a lo que tenia pensado cumplir lo aprendi.
+- Para la proxima unidad pienso seguir coon la misma metodologia, primero referenciarme bien y aprender y luego empezar a actuar con ideas.
