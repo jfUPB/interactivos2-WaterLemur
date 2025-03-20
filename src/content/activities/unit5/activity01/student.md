@@ -1,8 +1,3 @@
-Escribe un texto donde explique este referente y esta visión del arte generativo de Ben Heim ¿Cómo se 
-relaciona con tu proyecto de curso? ¿Qué aspectos te llaman la atención? ¿Qué aspectos te gustaría 
-explorar en tu proyecto de curso?
-
-
 - El arte generativo consiste en crear un programa con ciertas reglas que seran los limites al que puede llegar a ser interpretado.La analogia del arbol sirve muy bien para describir lo que ocurre. El arbol, al poseer un codigo genetico, **esta predestinado a ser**.
 
 - Se relaciona con el proyecto del curso por al igual no se crea directamente el arte, se crea un software con unas reglas que serviran de limite **para lo que puede ser generado**.
