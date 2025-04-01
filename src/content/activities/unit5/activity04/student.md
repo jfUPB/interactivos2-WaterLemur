@@ -4,5 +4,3 @@ Con el uso del celular para registrar los movimientos como **input** y se proces
 El **output** será una pieza artística usando el movimiento del usuario como intención.
 
 El movimiento hacia la *derecha* será un sonido más *calmado*, mientras que el movimiento a la *izquierda* dará como resultado un sonido más *hostil*
-
-![image](../../../../assets/diagram.jpg)
