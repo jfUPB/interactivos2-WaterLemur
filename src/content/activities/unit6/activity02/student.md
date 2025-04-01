@@ -20,3 +20,11 @@
   ![image](../../../../assets/plano-cartesiano.jpg)
 
   ![diagrama](../../../../assets/diagrama-ipo.jpg)
+
+-   **Pseudocodigo**
+
+```
+SI input_movimiento > umbral ENTONCES aumentar_agresividad
+SI input_movimiento < umbral ENTONCES aumentar_pasividad
+SI input_movimiento = 0 ENTONCES   no_hacer_nada
+```  
