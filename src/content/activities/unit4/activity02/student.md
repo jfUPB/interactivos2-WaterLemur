@@ -1,0 +1,3 @@
+- Es un framework para transmitir datos en tiempo real
+- Puede transmitir video y audio en tiempo real
+- Se debe tener camara para poder efectuar los ejemplos
