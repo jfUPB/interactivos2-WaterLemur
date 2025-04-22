@@ -20,6 +20,7 @@ function setup() {
 
     takeData();
     processData();
+    console.log(posX + " / " + posY);
   }
 
   function takeData(){
@@ -49,3 +50,7 @@ function setup() {
     posX = random(0, 100);
   }
 ```
+
+**console.log**
+
+![diagrama](../../../../assets/console-test.jpg)
