@@ -53,4 +53,9 @@ function setup() {
 
 **console.log**
 
-![diagrama](../../../../assets/console-test.jpg)
+![logs](../../../../assets/console-test.jpg)
+
+![logs](../../../../assets/console-logs-2.jpg)
+
+![logs](../../../../assets/console-logs-1.jpg)
+
