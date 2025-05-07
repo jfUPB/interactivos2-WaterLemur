@@ -25,3 +25,5 @@ function decreaseAudio(){
   outputVolume(soundAggressiveness, [rampTime], [timeFromNow])
 }
 ```
+
+![file-tree](../../../../assets/volume-test.gif)
