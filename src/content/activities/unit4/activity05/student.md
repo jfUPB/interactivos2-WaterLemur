@@ -1,0 +1,11 @@
+- La tecnologia WebRTC y diferentes tipos de servidores dependiendo de su funcionalidad.
+- La tecnologia webRTC
+- Recordar los distintos tipos de servidor
+- Mayor identificacion de modelos de sistemas usando clientes y servidores.
+- A medida que aparecian conceptos desconocidos, los iva buscando y aprendiendo sobre ellos.
+- Menos de lo esperado, mas o menos una clase.
+- Consultar cada cosa que no sepa y palabras desconocidas, ayuda de la inteligencia artificial y google para consultar cada tema que iva viendo.
+- Dediqué el tiempo suficiente para aprender los conceptos de la unidad o simplemente lo hice 
+por cumplir?
+- Los temas me parecen muy interesantes y de utilidad no solo para el curso pero como funcionan los sistemas informaticos y las redes de telecomunicacion en general, que pueden servir para el resto de la vida, no solo para la materia.
+- Muy comprometido, intente no dejar ningun vacio conceptual.
