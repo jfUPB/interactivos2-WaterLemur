@@ -27,3 +27,5 @@ function decreaseAudio(){
 ```
 
 ![file-tree](../../../../assets/volume-test.gif)
+
+En este test, el volumen varia dependiendo de las variables aleatorias (variables de prueba)
